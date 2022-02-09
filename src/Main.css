@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: green;
+    overflow-y: hidden;
+}
+
+.container {
+    border-radius: 10em;
+    align-content: center;
+    
+}
+
+h1, h2, h3,h4 {
+    color: rgb(0, 0, 0);
+}
+
+Nav {
+    display: row;
+    gap: 5em;
+    padding: 1em;
+    
+
+}
+
+Button{
+    margin: .2em ;
+    border-radius: 1em ;
+    width: 100px;
+    padding: .5em;
+    
+}
+Button:hover{
+
+    color: white;
+    font-weight: bold;
+    background-color: rgb(7, 65, 7);
+}
+
+Button:active {
+    color: white;
+    font-weight: bold;
+    background-color: rgb(7, 65, 7);
+}
+
+input{
+    padding: 1em;
+    background-color: transparent;
+    margin-right: 10%;
+    border-radius: 1.5em;
+    border: 0;
+    font-weight: bold;
+    font-size: large;
+    
+}
+
+select{
+    padding: 1em;
+    background-color: transparent;
+    border: none;
+    width: auto;
+    font-weight: bold;
+    font-size: large;
+}
+
+.upDownArrow {
+    margin: 1em;
+    border: 3px solid rgba(0, 0, 0, 0.3);;
+    border-width: 0 4px 4px 0;
+    display:inline-block;
+    padding: 6px;
+    transform: rotate(45deg);
+}
+
+
+.App {
+    text-align: center;
+  }
+
+.conversionBox{
+   margin: 5%;
+   padding: 5% 10%;
+   border-radius: 1.5em;
+   background-color: rgba(245, 245, 220, 0.8);
+}
