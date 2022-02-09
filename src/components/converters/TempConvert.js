@@ -5,7 +5,7 @@ export default function TempConvert() {
         <div className="Temp">
             <input type='number'></input>
             <select>
-                <option>Temperature</option>
+                <option>Temp</option>
             </select>
         </div>
     );

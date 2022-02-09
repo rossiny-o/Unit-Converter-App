@@ -48,10 +48,10 @@ Button:active {
 
 input{
     padding: 1em;
-    background-color: transparent;
+    background-color: 245, 245, 220;
     margin-right: 10%;
     border-radius: 1.5em;
-    border: 0;
+    border: none ;
     font-weight: bold;
     font-size: large;
     
@@ -63,7 +63,7 @@ select{
     border: none;
     width: auto;
     font-weight: bold;
-    font-size: large;
+    font-size: medium;
 }
 
 .upDownArrow {
@@ -84,5 +84,5 @@ select{
    margin: 5%;
    padding: 5% 10%;
    border-radius: 1.5em;
-   background-color: rgba(245, 245, 220, 0.8);
+   background-color: rgba(245, 245, 220, 0.9);
 }

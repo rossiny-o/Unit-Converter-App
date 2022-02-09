@@ -1,8 +1,12 @@
 import React, {useState} from 'react';
 import '../Main.css';
-import {Button, Nav } from 'reactstrap';
+import {Button} from 'reactstrap';
 import LengthConvert from './converters/LengthConvert';
 import WeightConvert from './converters/WeightConvert';
+import TempConvert from './converters/TempConvert';
+import VolConvert from './converters/VolConvert';
+import AreaConvert from './converters/AreaConvert';
+import TimeConvert from './converters/TimeConvert';
 
 function Main() {
     const [active, setActive] = useState('LengthConvert');
@@ -14,26 +18,84 @@ function Main() {
            </div>
 
            {/* We will use Buttons to navigate between the 'Convert' components
-           using useState and the onClick attribute
-           */}
+           using useState and the onClick attribute*/}
 
-           
-               <Nav>
-                    <Button outline onClick={LengthConvert} >Length</Button>
-                    <Button outline onClick={WeightConvert}>Weight</Button>
-                    <Button outline >Temperature</Button>
-                    <Button outline >Volume</Button>
-                    <Button outline >Area</Button>
-                    <Button outline >Time</Button>
-               </Nav>
+             <div className='row'>
+                <Button onClick={() => setActive("LengthConvert")}>Length</Button>
+                <Button onClick={() => setActive("WeightConvert")}>Weight</Button>
+                <Button onClick={() => setActive("TempConvert")}>Temperature</Button>
+                <Button onClick={() => setActive("VolConvert")}>Volume</Button>
+                <Button onClick={() => setActive("AreaConvert")}>Area</Button>
+                <Button onClick={() => setActive("TimeConvert")}>Time</Button>
+            </div>
 
+            <div>
 
-            <div className='conversionBox'>
+                {/* for Length */}
+
+                { active === "LengthConvert" && 
+                <div className='conversionBox'>
                 <h2>Length</h2>
                 <LengthConvert />
                 <i className='upDownArrow' />
                 <LengthConvert />
-            </div>
+                </div> }
+
+
+                {/* for Weight */}
+
+                { active === "WeightConvert" && 
+                <div className='conversionBox'>
+                <h2>Weight</h2>
+                <WeightConvert />
+                <i className='upDownArrow' />
+                <WeightConvert />
+                </div> }
+
+                {/* for Temp */}
+
+                { active === "TempConvert" && 
+                <div className='conversionBox'>
+                <h2>Temperature</h2>
+                <TempConvert />
+                <i className='upDownArrow' />
+                <TempConvert />
+                </div> }
+
+                {/* for Vol */}
+
+                { active === "VolConvert" && 
+                <div className='conversionBox'>
+                <h2>Volume</h2>
+                <VolConvert />
+                <i className='upDownArrow' />
+                <VolConvert />
+                </div>}
+                
+                {/* for Area */}
+                
+                { active === "AreaConvert" && 
+                <div className='conversionBox'>
+                <h2>Area</h2>
+                <AreaConvert />
+                <i className='upDownArrow' />
+                <AreaConvert />
+                </div>}
+
+                {/* for Time */}
+                
+                { active === "TimeConvert" && 
+                <div className='conversionBox'>
+                <h2>Time</h2>
+                <TimeConvert />
+                <i className='upDownArrow' />
+                <TimeConvert />
+                </div>}
+
+            </div> 
+
+
+            
             
         </div>
     );
