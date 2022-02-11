@@ -53,7 +53,8 @@ Button:active {
 }
 
 input{
-    padding: 1em;
+    padding: .7em;
+    width: fit-content;
     background-color: 245, 245, 220;
     margin-right: 10%;
     border-radius: 1.5em;

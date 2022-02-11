@@ -10,10 +10,9 @@ import AreaConvert from './converters/AreaConvert';
 import TimeConvert from './converters/TimeConvert';
 
 
-function Main() {
+function Main(props) {
     const [active, setActive] = useState('LengthConvert');
-    const [LengthOptions, setLengthOptions ] = useState([])
-
+    
 
 
 
@@ -21,26 +20,7 @@ function Main() {
    {
 
     // length
-    useEffect( () => {
-
-        const lengthOptions = {
-        method: 'GET',
-        url: 'https://units-converter.p.rapidapi.com/dev/length/allUnits',
-        headers: {
-          'x-rapidapi-host': 'units-converter.p.rapidapi.com',
-          'x-rapidapi-key': '23db05a3b5mshf6cd348a653765bp13010djsn41b57b8068dd'
-        }
-      };
-
-      axios.request(lengthOptions).then( response => {
-          console.log(response.data)
-          console.log(response.data[5])
-        }).catch(function (error) {
-            console.error(error);
-      });
-
-     console.log(lengthOptions)
-    }, []);
+   
 
 
     // weight
@@ -55,7 +35,10 @@ function Main() {
           };
     
           axios.request(weightOptions).then(function (response) {
+              const weightList = [{response}]
+
             console.log(response.data);
+            console.log(weightList)
         }).catch(function (error) {
             console.error(error);
         });
@@ -138,6 +121,9 @@ function Main() {
    }
 // API calls end here
     
+   const {
+        lengthList
+   } = props
     
     return  (
         <div className='container-md'>
@@ -150,7 +136,7 @@ function Main() {
            using useState and the onClick attribute*/}
 
              <div className='row'>
-                <Button onClick={() => setActive("LengthConvert")}>Length</Button>
+                <Button onClick={() => setActive("LengthConvert")}>Haiti</Button>
                 <Button onClick={() => setActive("WeightConvert")}>Weight</Button>
                 <Button onClick={() => setActive("TempConvert")}>Temperature</Button>
                 <Button onClick={() => setActive("VolConvert")}>Volume</Button>
@@ -165,9 +151,9 @@ function Main() {
                 { active === "LengthConvert" && 
                 <div className='conversionBox'>
                 <h2>Length</h2>
-                <LengthConvert LengthOptions={LengthOptions}/>
+                <LengthConvert  lengthList ={lengthList}/>
                 <i className='upDownArrow' />
-                <LengthConvert LengthOptions={LengthOptions} />
+                <LengthConvert lengthList ={lengthList} />
                 </div> }
 
 
@@ -176,7 +162,7 @@ function Main() {
                 { active === "WeightConvert" && 
                 <div className='conversionBox'>
                 <h2>Weight</h2>
-                <WeightConvert />
+                <WeightConvert/>
                 <i className='upDownArrow' />
                 <WeightConvert />
                 </div> }
