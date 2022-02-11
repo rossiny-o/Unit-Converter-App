@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 import '../Main.css';
 import {Button} from 'reactstrap';
 import LengthConvert from './converters/LengthConvert';
@@ -8,8 +9,136 @@ import VolConvert from './converters/VolConvert';
 import AreaConvert from './converters/AreaConvert';
 import TimeConvert from './converters/TimeConvert';
 
+
 function Main() {
     const [active, setActive] = useState('LengthConvert');
+    const [LengthOptions, setLengthOptions ] = useState([])
+
+
+
+
+//API calls start here ----
+   {
+
+    // length
+    useEffect( () => {
+
+        const lengthOptions = {
+        method: 'GET',
+        url: 'https://units-converter.p.rapidapi.com/dev/length/allUnits',
+        headers: {
+          'x-rapidapi-host': 'units-converter.p.rapidapi.com',
+          'x-rapidapi-key': '23db05a3b5mshf6cd348a653765bp13010djsn41b57b8068dd'
+        }
+      };
+
+      axios.request(lengthOptions).then( response => {
+          console.log(response.data)
+          console.log(response.data[5])
+        }).catch(function (error) {
+            console.error(error);
+      });
+
+     console.log(lengthOptions)
+    }, []);
+
+
+    // weight
+    useEffect ( () => {
+        const weightOptions = {
+            method: 'GET',
+            url: 'https://units-converter.p.rapidapi.com/dev/mass/allUnits',
+            headers: {
+              'x-rapidapi-host': 'units-converter.p.rapidapi.com',
+              'x-rapidapi-key': '23db05a3b5mshf6cd348a653765bp13010djsn41b57b8068dd'
+            }
+          };
+    
+          axios.request(weightOptions).then(function (response) {
+            console.log(response.data);
+        }).catch(function (error) {
+            console.error(error);
+        });
+    }, [])
+
+    // temp
+    useEffect ( () => {
+        const tempOptions = {
+            method: 'GET',
+            url: 'https://units-converter.p.rapidapi.com/dev/temperature/allUnits',
+            headers: {
+              'x-rapidapi-host': 'units-converter.p.rapidapi.com',
+              'x-rapidapi-key': '23db05a3b5mshf6cd348a653765bp13010djsn41b57b8068dd'
+            }
+          };
+    
+          axios.request(tempOptions).then(function (response) {
+            console.log("temperature - " + response.data);
+        }).catch(function (error) {
+            console.error(error);
+        });
+    }, [])
+
+    // volume
+    useEffect ( () => {
+        const volOptions = {
+            method: 'GET',
+            url: 'https://units-converter.p.rapidapi.com/dev/volume/allUnits',
+            headers: {
+              'x-rapidapi-host': 'units-converter.p.rapidapi.com',
+              'x-rapidapi-key': '23db05a3b5mshf6cd348a653765bp13010djsn41b57b8068dd'
+            }
+          };
+    
+          axios.request(volOptions).then(function (response) {
+            console.log("volume - " + response.data);
+        }).catch(function (error) {
+            console.error(error);
+        });
+    }, [])
+
+
+    // area
+    useEffect( () => {
+
+        const areaOptions = {
+          method: 'GET',
+          url: 'https://units-converter.p.rapidapi.com/dev/area/allUnits',
+          headers: {
+            'x-rapidapi-host': 'units-converter.p.rapidapi.com',
+            'x-rapidapi-key': '23db05a3b5mshf6cd348a653765bp13010djsn41b57b8068dd'
+          }
+        };
+        
+        axios.request(areaOptions).then(function (response) {
+            console.log("area - " + response.data);
+        }).catch(function (error) {
+            console.error(error);
+        });
+  
+    }, [])
+
+    // time
+    useEffect( () => {
+        const timeOptions = {
+            method: 'GET',
+            url: 'https://units-converter.p.rapidapi.com/dev/time/allUnits',
+            headers: {
+              'x-rapidapi-host': 'units-converter.p.rapidapi.com',
+              'x-rapidapi-key': '23db05a3b5mshf6cd348a653765bp13010djsn41b57b8068dd'
+            }
+          };
+  
+        axios.request(timeOptions).then(function (response) {
+          console.log("time - " + response.data);
+      }).catch(function (error) {
+          console.error(error);
+      });
+    }, [])
+   }
+// API calls end here
+    
+    
     return  (
         <div className='container-md'>
            <div className='row'>
@@ -36,9 +165,9 @@ function Main() {
                 { active === "LengthConvert" && 
                 <div className='conversionBox'>
                 <h2>Length</h2>
-                <LengthConvert />
+                <LengthConvert LengthOptions={LengthOptions}/>
                 <i className='upDownArrow' />
-                <LengthConvert />
+                <LengthConvert LengthOptions={LengthOptions} />
                 </div> }
 
 
