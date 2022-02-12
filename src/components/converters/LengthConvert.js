@@ -4,9 +4,7 @@ import axios from "axios";
 export default function LengthConvert(props) {
 
     const [lengthList, setLengthOptions ] = useState([])
-
-    console.log(lengthList)
-
+    
     useEffect( () => {
 
         const lengthOptions = {
@@ -18,23 +16,37 @@ export default function LengthConvert(props) {
         }
       };
 
-      axios.request(lengthOptions).then( response => {
+      axios.request(lengthOptions).then( (response) => {
+
           setLengthOptions(response.data)
-      });
+        }).catch(function (error) {
+            console.error(error);
+           });
+     
 
 
-    //   axios.request(lengthOptions).then( response => {
-
-    //     const lengthList = [{response}]
-    //       console.log(response.data)
-    //       console.log(lengthList)
-    //     }
-    //     ).catch(function (error) {
-    //         console.error(error);
-    //   });
+      {
+        //   axios.request(lengthOptions).then( response => {
+    
+        //      const lengthList = [{response}]
+        //        console.log(response.data)
+        //       console.log(lengthList)
+        //     }
+        //      ).catch(function (error) {
+        //          console.error(error);
+        //    });
+        //   
+      }
 
     
     }, []);
+
+    const {
+      selectedLength,
+      onChangeLength
+    }=props
+
+   
 
     
 
@@ -42,10 +54,10 @@ export default function LengthConvert(props) {
 
     return(
         <div className="Length">
-            <input className="input"type='number'></input>
-            <select className="select">
+            <input type='number'></input>
+            <select  value={selectedLength} onChange={onChangeLength} >
                 {lengthList.map(option => (
-                    <option key={lengthList} value={option}>{option}</option> 
+                    <option key={lengthList.id} value={option}>{option}</option> 
                 ))}
             </select>
         </div>
