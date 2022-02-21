@@ -5,6 +5,13 @@ export default function VolConvert(props) {
 
     const [volList, setVolOptions ] = useState([])
 
+    const {
+        selectedVol,
+        onChangeVol,
+        volAmount,
+        onChangeVolAmount
+    }=props
+
     useEffect ( () => {
         const volOptions = {
             method: 'GET',
@@ -23,14 +30,11 @@ export default function VolConvert(props) {
         });
     }, [])
 
-    const {
-        selectedVol,
-        onChangeVol
-    }=props
+  
 
     return(
         <div className="Vol">
-            <input type='number'></input>
+            <input type='number' value= {volAmount} onChange= {onChangeVolAmount}></input>
             <select value={selectedVol} onChange={onChangeVol}>
             {volList.map(option => (
                     <option key={volList.id} value={option}>{option}</option> 

@@ -5,6 +5,13 @@ export default function TempConvert(props) {
 
     const [tempList, setTempOptions ] = useState([])
 
+    const {
+        selectedTemp,
+        onChangeTemp,
+        tempAmount,
+        onChangeTempAmount
+    }=props
+
     useEffect ( () => {
         const tempOptions = {
             method: 'GET',
@@ -23,14 +30,11 @@ export default function TempConvert(props) {
         });
     }, [])
 
-    const {
-        selectedTemp,
-        onChangeTemp
-    }=props
+  
 
     return(
         <div className="Temp">
-            <input type='number'></input>
+            <input type='number' value={tempAmount} onChange={onChangeTempAmount}></input>
             <select value={selectedTemp} onChange={onChangeTemp}>
             {tempList.map(option => (
                     <option key={tempList.id} value={option}>{option}</option> 

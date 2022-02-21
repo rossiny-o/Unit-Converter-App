@@ -5,9 +5,15 @@ export default function AreaConvert(props) {
 
     const [areaList, setAreaOptions ] = useState([])
 
+    const { 
+        selectedArea,
+        onChangeArea,
+        areaAmount,
+        onChangeAreaAmount
+    } =props
+
 
     useEffect( () => {
-
         const areaOptions = {
           method: 'GET',
           url: 'https://units-converter.p.rapidapi.com/dev/area/allUnits',
@@ -25,14 +31,11 @@ export default function AreaConvert(props) {
   
     }, [])
 
-    const { 
-        selectedArea,
-        onChangeArea
-    } =props
+   
 
     return(
         <div className="Area">
-            <input type='number'></input>
+            <input type='number' value={areaAmount} onChange={onChangeAreaAmount}></input>
             <select value={selectedArea} onChange={onChangeArea}>
             {areaList.map(option => (
                     <option key={areaList.id} value={option}>{option}</option> 

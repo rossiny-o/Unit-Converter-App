@@ -5,6 +5,8 @@ export default function TimeConvert(props) {
 
     const [timeList, setTimeOptions] = useState([])
 
+    const {selectedTime, onChangeTime, timeAmount, onChangeTimeAmount} =props
+
     useEffect( () => {
         const timeOptions = {
             method: 'GET',
@@ -22,12 +24,12 @@ export default function TimeConvert(props) {
       });
     }, [])
 
-    const {selectedTime, onChangeTime} =props
+   
    
 
     return(
         <div className="Time">
-            <input type='number'></input>
+            <input type='number' value={timeAmount} onChange={onChangeTimeAmount}></input>
             <select value={selectedTime} onChange={onChangeTime}>
             {timeList.map(option => (
                     <option key={timeList.id} value={option}>{option}</option> 

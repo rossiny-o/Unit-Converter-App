@@ -5,6 +5,14 @@ export default function WeightConvert(props) {
 
     const [weightList, setWeightOptions ] = useState([])
 
+    const {
+        selectedWeight,
+        onChangeWeight, 
+        weightAmount,
+        onChangeWeightAmount
+
+    } = props
+
     useEffect ( () => {
         const weightOptions = {
             method: 'GET',
@@ -21,28 +29,14 @@ export default function WeightConvert(props) {
           }).catch(function (error) {
               console.error(error);
              });
-
-          {
-            //   axios.request(weightOptions).then(function (response) {
-        //     const weightList = [{response}]
-
-        //     console.log(response.data);
-        //     console.log(weightList)
-        // }).catch(function (error) {
-        // //     console.error(error);
-        // });
-          }
           
     }, [])
 
-    const {
-        selectedWeight,
-        onChangeWeight
-    } = props
+  
 
     return(
         <div className="Weight">
-            <input type='number'></input>
+            <input type='number' value={weightAmount} onChange={onChangeWeightAmount}></input>
             <select value={selectedWeight} onChange={onChangeWeight}>
             {weightList.map(option => (
                     <option key={weightList.id} value={option}>{option}</option> 

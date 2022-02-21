@@ -1,35 +1,24 @@
+
 body {
     margin: 0;
     display: flex;
-    align-items: center;
+    align-items:center;
     justify-content: center;
     min-height: 100vh;
-    background-color: green;
     overflow-y: hidden;
+    background-image: url("../src/image/vecteezy_book-with-green-board-background_3395223.jpg");
 }
 
-.container {
-    border-radius: 10em;
-    align-content: center;
-    
-}
+
 
 h2,h4 {
-    color: rgb(0, 0, 0);
+    color: black;
 }
 
 h1, h3 {
     font-size: xx-large;
     font-weight: bolder;
-    color: beige;
-}
-
-Nav {
-    display: row;
-    gap: 5em;
-    padding: 1em;
-    
-
+    color: black;
 }
 
 Button{
@@ -53,43 +42,46 @@ Button:active {
 }
 
 input{
-    padding: .7em;
-    width: fit-content;
-    background-color: 245, 245, 220;
-    margin-right: 10%;
-    border-radius: 1.5em;
-    border: none ;
+    width: auto;
+    padding: .5em;
+    margin-right: .6em;
+    margin-left: 1.5em;
+    background-color: none;
+    border: none;
+    border-bottom: solid .3px rgb(213, 213, 213);
+    border-width: auto;
+    font-display: flex;
+    text-align: center;
     font-weight: bold;
-    font-size: large;
+    font-size: 1.8em;
     
 }
 
 select{
-    padding: 1em;
+    padding: .1em;
     background-color: transparent;
     border: none;
+    border-radius: 1.5em;
     width: auto;
-    font-weight: bold;
+    font-weight: inherit;
     font-size: medium;
+    color: black ;
 }
 
-.upDownArrow {
-    margin: 1em;
-    border: 3px solid rgba(0, 0, 0, 0.3);;
-    border-width: 0 4px 4px 0;
-    display:inline-block;
-    padding: 6px;
-    transform: rotate(45deg);
-}
 
 
 .App {
-    text-align: center;
+    padding: 2em;
+    text-align: flex-start;
+    border: solid 1px;
+    background-color: rgb(255, 255, 255, 0.6);
+    border-radius: 1.5em;
   }
 
 .conversionBox{
-   margin: 5%;
-   padding: 5% 10%;
+   margin: 2em;
+   padding: 2em;
    border-radius: 1.5em;
-   background-color: rgba(245, 245, 220, 0.9);
+   border: solid 1px;
+   background-color: white 0.85;
 }
