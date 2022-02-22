@@ -9,13 +9,20 @@ body {
     background-image: url("../src/image/vecteezy_book-with-green-board-background_3395223.jpg");
 }
 
-
-
-h2,h4 {
-    color: black;
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin: 0;
+    padding: 0;
+    
 }
 
-h1, h3 {
+
+h2 {
+    color: black;
+    text-align: center;
+}
+h3 {
     font-size: xx-large;
     font-weight: bolder;
     color: black;
@@ -46,7 +53,7 @@ input{
     padding: .5em;
     margin-right: .6em;
     margin-left: 1.5em;
-    background-color: none;
+    background-color: transparent;
     border: none;
     border-bottom: solid .3px rgb(213, 213, 213);
     border-width: auto;
@@ -58,12 +65,12 @@ input{
 }
 
 select{
-    padding: .1em;
+    padding: 1.5em;
     background-color: transparent;
     border: none;
     border-radius: 1.5em;
     width: auto;
-    font-weight: inherit;
+    font-weight: bolder;
     font-size: medium;
     color: black ;
 }
@@ -79,9 +86,8 @@ select{
   }
 
 .conversionBox{
-   margin: 2em;
-   padding: 2em;
-   border-radius: 1.5em;
-   border: solid 1px;
-   background-color: white 0.85;
+   margin: 1em;
+   padding: 1em;
+   border-radius: 3em;
+
 }
