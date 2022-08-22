@@ -1,15 +1,33 @@
 
+.App {
+    color: white;
+    padding: .8rem;
+    text-align: center;
+    background-color: rgb(121, 57, 181);
+    border-radius: 3.5em;
+  }
+
+.conversionBox{
+   margin: .2em;
+   padding: 1em;
+   border-radius: 1em;
+
+}
+
 body {
-    margin: 0;
+    margin: 1em;
+    padding: 1em;
     display: flex;
     align-items:center;
     justify-content: center;
-    min-height: 100vh;
-    overflow-y: hidden;
-    background-image: url("../src/image/vecteezy_book-with-green-board-background_3395223.jpg");
+    min-height: 50vh;
+    background: url(/public/backgroundimg.jpg) ;
+    background-size: cover;
+
 }
 
 h1 {
+    color: white;
     text-align: center;
     font-size: 2.5em;
     margin: 0;
@@ -19,75 +37,91 @@ h1 {
 
 
 h2 {
-    color: black;
+    color: white;
     text-align: center;
+    text-transform: uppercase ;
 }
 h3 {
     font-size: xx-large;
     font-weight: bolder;
-    color: black;
+    color: white;
 }
 
 Button{
     margin: .2em ;
     border-radius: 1em ;
-    width: 100px;
+    width: 130px;
     padding: .5em;
+    background-color: white;
     
 }
 Button:hover{
 
     color: white;
+    border-color: white;
     font-weight: bold;
-    background-color: rgb(7, 65, 7);
+    background-color: rgb(61, 5, 74);
 }
 
-Button:active {
+Button:focus {
     color: white;
     font-weight: bold;
-    background-color: rgb(7, 65, 7);
+    background-color: rgb(247, 31, 31);
 }
 
 input{
+    color: rgb(8, 8, 8);
     width: auto;
     padding: .5em;
-    margin-right: .6em;
-    margin-left: 1.5em;
-    background-color: transparent;
+    background-color:white;
     border: none;
-    border-bottom: solid .3px rgb(213, 213, 213);
-    border-width: auto;
-    font-display: flex;
-    text-align: center;
+    border-radius: .5rem;
+    text-align: end;
     font-weight: bold;
-    font-size: 1.8em;
+    font-size: 1em;
     
 }
 
 select{
-    padding: 1.5em;
-    background-color: transparent;
+    padding: .8rem;
+    margin-left: 2em;
+    text-align: center;
+    background-color: rgb(121, 57, 181);
     border: none;
-    border-radius: 1.5em;
-    width: auto;
+    width: 10rem;
     font-weight: bolder;
-    font-size: medium;
-    color: black ;
+    font-size: 1rem;
+    color: white;
+   
+   
 }
 
 
 
-.App {
-    padding: 2em;
-    text-align: flex-start;
-    border: solid 1px;
-    background-color: rgb(255, 255, 255, 0.6);
-    border-radius: 1.5em;
-  }
 
-.conversionBox{
-   margin: 1em;
-   padding: 1em;
-   border-radius: 3em;
+
+@media screen and (max-width: 40rem){
+    body{
+        background: rgb(121, 57, 181);
+        margin: .1rem;
+        padding: .2rem;
+    }
+    .App {
+      
+        padding: .4rem;
+        text-align: center;
+        background-color: rgb(121, 57, 181);
+        border-radius: 3.5em;
+      }
+      .conversionBox{
+        margin: .2em;
+        padding: .5em;
+        border: none;
+     
+     }
+     input{
+        text-align: end;
+        font-size: .9rem;
+     }
 
 }

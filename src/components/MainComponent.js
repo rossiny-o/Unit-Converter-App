@@ -2,12 +2,12 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import '../Main.css';
 import {Button} from 'reactstrap';
-import LengthConvert from './converters/LengthConvert';
-import WeightConvert from './converters/WeightConvert';
-import TempConvert from './converters/TempConvert';
-import VolConvert from './converters/VolConvert';
-import AreaConvert from './converters/AreaConvert';
-import TimeConvert from './converters/TimeConvert';
+import LengthConvert from '../converters/LengthConvert';
+import WeightConvert from '../converters/WeightConvert';
+import TempConvert from '../converters/TempConvert';
+import VolConvert from '../converters/VolConvert';
+import AreaConvert from '../converters/AreaConvert';
+import TimeConvert from '../converters/TimeConvert';
 
 
 export default function Main(props) {
@@ -83,7 +83,7 @@ export default function Main(props) {
             }
           };
   
-        //   We can initialize a lengthAmount for conversion.params.convert 
+        //   We can initialize a lengthAmount for lengthonversion.params.convert 
         // We can initialize conversion.params.from into the selected index (by the user) in the array response for line 48 in LengthConvert.js. 
           
           axios.request(lengthConversion).then(function (response) {
@@ -91,7 +91,7 @@ export default function Main(props) {
           }).catch(function (error) {
               console.error(error);
           });
-    },[fromLength, toLength])
+    },[fromLength, toLength, lengthAmount])
 
     useEffect ( () => {
         if (fromLength != null && toLength != null) {
@@ -99,7 +99,7 @@ export default function Main(props) {
             .then(res => res.json())
             .then(response => setLengthResult(JSON.stringify(response.data(toLength))))
         }
-    }, [fromLength, toLength] )
+    }, [fromLength, toLength, lengthAmount] )
 
     // --------------------------------------
 
@@ -168,7 +168,7 @@ export default function Main(props) {
           }).catch(function (error) {
               console.error(error);
           });
-    },[fromWeight, toWeight]);
+    },[fromWeight, toWeight, weightAmount]);
 
     useEffect ( () => {
         if (fromWeight != null && toWeight != null) {
@@ -176,7 +176,7 @@ export default function Main(props) {
             .then(res => res.json())
             .then(response => setWeightResult(JSON.stringify(response.data(toWeight))))
         }
-    }, [fromWeight, toWeight] )
+    }, [fromWeight, toWeight, weightAmount] )
 
 
 
@@ -245,7 +245,7 @@ export default function Main(props) {
           }).catch(function (error) {
               console.error(error);
           });
-    },[fromTemp ,toTemp]);
+    },[fromTemp ,toTemp, tempAmount]);
 
     useEffect ( () => {
         if (fromTemp != null && toTemp != null) {
@@ -253,7 +253,7 @@ export default function Main(props) {
             .then(res => res.json())
             .then(response => setTempResult(JSON.stringify(response.data(toTemp))))
         }
-    }, [fromTemp, toTemp] )
+    }, [fromTemp, toTemp, tempAmount] )
 
     // for Volume
     const [fromVol, setFromVol] = useState()
@@ -317,7 +317,7 @@ export default function Main(props) {
           }).catch(function (error) {
               console.error(error);
           });
-    },[fromVol ,toVol]);
+    },[fromVol ,toVol, volAmount]);
     
     
     useEffect ( () => {
@@ -326,7 +326,7 @@ export default function Main(props) {
             .then(res => res.json())
             .then(response => setVolResult(JSON.stringify(response.data(toVol))))
         }
-    }, [fromVol, toVol] );
+    }, [fromVol, toVol, volAmount] );
 
 
 
@@ -394,7 +394,7 @@ export default function Main(props) {
         }).catch(function (error) {
             console.error(error);
         });
-    },[fromArea , toArea])
+    },[fromArea , toArea, areaAmount])
 
 
     useEffect ( () => {
@@ -404,7 +404,7 @@ export default function Main(props) {
             .then(response => setAreaResult(JSON.stringify(response.data(toArea))))
         }
         
-    }, [fromArea, toArea] )
+    }, [fromArea, toArea, areaAmount] )
 
 
     // for Time
@@ -471,190 +471,28 @@ export default function Main(props) {
           }).catch(function (error) {
               console.error(error);
           });
-        },[fromTime, toTime])
+        },[fromTime, toTime, timeAmount])
 
     useEffect ( () => {
         if (fromTime != null && toTime != null) {
             fetch(`https://units-converter.p.rapidapi.com/dev/time?convert=${timeAmount}&from=${fromTime}&to=${toTime}`)
             .then(res => res.json())
-            .then(response => setTimeResult(JSON.stringify(response.data(toLength))))
+            .then(response => setTimeResult(JSON.stringify(response.data(toTime))))
         }
         
 
-    }, [fromTime, toTime] )
+    }, [fromTime, toTime, timeAmount] )
 
 
 
-
-
-  
-// API calls
-{
-    // length
-    // useEffect( () => {
-
-    //     const lengthOptions = {
-    //     method: 'GET',
-    //     url: 'https://units-converter.p.rapidapi.com/dev/length/allUnits',
-    //     headers: {
-    //       'x-rapidapi-host': 'units-converter.p.rapidapi.com',
-    //       'x-rapidapi-key': '23db05a3b5mshf6cd348a653765bp13010djsn41b57b8068dd'
-    //     }
-    //   };
-
-    //   axios.request(lengthOptions).then( (response) => {
-    //       const firstLength = response.data[18]
-    //       setFromLength(response.data[28])
-    //       setToLength(firstLength)
-    //     }).catch(function (error) {
-    //         console.error(error);
-    //        });
-
-    // }, []);
-
-    // useEffect ( () => {
-    //     const conversion = {
-    //         method: 'GET',
-    //         url: 'https://units-converter.p.rapidapi.com/dev/length',
-    //         params: {convert: `${lengthAmount}`, from: "inch" , to: 'foot-metric' },
-    //         headers: {
-    //           'x-rapidapi-host': 'units-converter.p.rapidapi.com',
-    //           'x-rapidapi-key': '23db05a3b5mshf6cd348a653765bp13010djsn41b57b8068dd'
-    //         }
-    //       };
-  
-    //     //   We can initialize a lengthAmount for conversion.params.convert 
-    //     // We can initialize conversion.params.from into the selected index (by the user) in the array response for line 48 in LengthConvert.js. 
-          
-    //       axios.request(conversion).then(function (response) {
-    //           console.log('Converted from inch to foot-metric => ')
-    //           console.log(response.data);
-    //           console.log(conversion.params.from)
-    //           console.log(response.data.equal)
-    //           setLengthResult(response.data.equal)
-    //       }).catch(function (error) {
-    //           console.error(error);
-    //       });
-    // },[])
-    
-
-
-    {// We need to make it so that (options.params.from) and (options.params.to) are initialized to be whatever value the user picks in the dropdown options for the measurements which is popularized by the array response for line 48 in LengthConvert.js. 
-
-    // this may have to get this moved to LengthConvert.js
-    // useEffect ( () => {
-    //     const options = {
-    //         method: 'GET',
-    //         url: 'https://units-converter.p.rapidapi.com/dev/length',
-    //         params: {convert: "5", from: 'inch', to: 'foot-metric' },
-    //         headers: {
-    //           'x-rapidapi-host': 'units-converter.p.rapidapi.com',
-    //           'x-rapidapi-key': '23db05a3b5mshf6cd348a653765bp13010djsn41b57b8068dd'
-    //         }
-    //       };
-
-    //     //   We can initialize a lengthAmount for options.params.convert 
-    //     // We can initialize options.params.from into the selected index (by the user) in the array response for line 48 in LengthConvert.js. 
-          
-    //       axios.request(options).then(function (response) {
-    //           console.log('Converted from inch to foot-metric => ')
-    //           console.log(response.data);
-    //           console.log(options.params.from)
-    //           console.log(response.data.equal)
-    //       }).catch(function (error) {
-    //           console.error(error);
-    //       });
-    // },[])}
-    }
-    // weight
-   
-    // temp
-    // useEffect ( () => {
-    //     const tempOptions = {
-    //         method: 'GET',
-    //         url: 'https://units-converter.p.rapidapi.com/dev/temperature/allUnits',
-    //         headers: {
-    //           'x-rapidapi-host': 'units-converter.p.rapidapi.com',
-    //           'x-rapidapi-key': '23db05a3b5mshf6cd348a653765bp13010djsn41b57b8068dd'
-    //         }
-    //       };
-    
-    //       axios.request(tempOptions).then( response => {
-    //           const firstTemp = response.data[0]
-    //         setFromTemp(response.data[2])
-    //         setToTemp(firstTemp)
-
-    //     }).catch(function (error) {
-    //         console.error(error);
-    //     });
-    // }, [])
-    //vol
-    // useEffect ( () => {
-    //     const volOptions = {
-    //         method: 'GET',
-    //         url: 'https://units-converter.p.rapidapi.com/dev/volume/allUnits',
-    //         headers: {
-    //           'x-rapidapi-host': 'units-converter.p.rapidapi.com',
-    //           'x-rapidapi-key': '23db05a3b5mshf6cd348a653765bp13010djsn41b57b8068dd'
-    //         }
-    //       };
-    
-    //       axios.request(volOptions).then( response => {
-    //           const firstVol = response.data[7]
-    //        setFromVol(response.data[29])
-    //        setToVol(firstVol)
-    //     }).catch(function (error) {
-    //         console.error(error);
-    //     });
-    // }, [])
-    //area
-    // useEffect( () => {
-
-    //     const areaOptions = {
-    //       method: 'GET',
-    //       url: 'https://units-converter.p.rapidapi.com/dev/area/allUnits',
-    //       headers: {
-    //         'x-rapidapi-host': 'units-converter.p.rapidapi.com',
-    //         'x-rapidapi-key': '23db05a3b5mshf6cd348a653765bp13010djsn41b57b8068dd'
-    //       }
-    //     };
-        
-    //     axios.request(areaOptions).then(response => {
-    //        const firstArea = response.data[29]
-    //        setFromArea(response.data[35])
-    //        setToArea(firstArea)
-    //     }).catch(function (error) {
-    //         console.error(error);
-    //     });
-  
-    // }, [])
-    //time
-    // useEffect( () => {
-    //     const timeOptions = {
-    //         method: 'GET',
-    //         url: 'https://units-converter.p.rapidapi.com/dev/time/allUnits',
-    //         headers: {
-    //           'x-rapidapi-host': 'units-converter.p.rapidapi.com',
-    //           'x-rapidapi-key': '23db05a3b5mshf6cd348a653765bp13010djsn41b57b8068dd'
-    //         }
-    //       };
-  
-    //     axios.request(timeOptions).then(response => {
-    //         const firstTime = response.data[35]
-    //         setFromTime(response.data[9])
-    //         setToTime(firstTime)
-    //     }).catch(function (error) {
-    //       console.error(error);
-    //   });
-    // }, [])
-
-}
     return  (
         // Title
         <div className='container-md'>
            <div className='row'>
                 <h1>rossi convert</h1>
-                <h3>Select a unit of measure:</h3>
+               
+                <hr/>
+                <h3>select a unit of measure</h3>
            </div>
 
 {/* We will use Buttons to navigate between the 'Convert' components
@@ -668,6 +506,8 @@ using useState and the onClick attribute*/}
                 <Button onClick={() => setActive("AreaConvert")}>Area</Button>
                 <Button onClick={() => setActive("TimeConvert")}>Time</Button>
             </div>
+            <br/>
+            <hr/>
 
 {/* Button Onclick event */}
 
@@ -678,9 +518,8 @@ using useState and the onClick attribute*/}
                 { active === "LengthConvert" && 
                 <div className='conversionBox'>
                 <h2>Length</h2>
-                <h4>From: </h4>
 
-                <LengthConvert 
+            <LengthConvert 
                     lengthList ={lengthList}
                     selectedLength= {fromLength}
                     onChangeLength = {e => setFromLength(e.target.value)}
@@ -691,7 +530,7 @@ using useState and the onClick attribute*/}
                 
                 />
 
-                <h4>To: </h4>
+                <h3>= </h3>
                 <LengthConvert 
                     lengthList ={lengthList}
                     selectedLength={toLength}
@@ -706,7 +545,7 @@ using useState and the onClick attribute*/}
                 { active === "WeightConvert" && 
                 <div className='conversionBox'>
                 <h2>Weight</h2>
-                <h4>From: </h4>
+                
                 <WeightConvert 
                 
                     weightList = {weightList}
@@ -715,7 +554,7 @@ using useState and the onClick attribute*/}
                     onChangeWeightAmount = {handleWeightFromAmountChange}
                     weightAmount = {fromWeightAmount}
                 />
-                 <h4>To: </h4>
+                 <h3>= </h3>
                 <WeightConvert 
                     weightList = {weightList}
                     selectedWeight={toWeight}
@@ -730,7 +569,7 @@ using useState and the onClick attribute*/}
                 { active === "TempConvert" && 
                 <div className='conversionBox'>
                 <h2>Temperature</h2>
-                <h4>From: </h4>
+                
                 <TempConvert 
                     tempList={tempList}
                     selectedTemp ={fromTemp}
@@ -738,7 +577,7 @@ using useState and the onClick attribute*/}
                     onChangeTempAmount = {handleTempFromAmountChange}
                     tempAmount = {fromTempAmount}
                 />
-                 <h4>To: </h4>
+                 <h3>= </h3>
                 <TempConvert 
                     tempList={tempList}
                     selectedTemp ={toTemp}
@@ -754,7 +593,7 @@ using useState and the onClick attribute*/}
                 { active === "VolConvert" && 
                 <div className='conversionBox'>
                 <h2>Volume</h2>
-                <h4>From: </h4>
+                
                 <VolConvert 
                     volList = {volList}
                     selectedVol = {fromVol}
@@ -762,7 +601,7 @@ using useState and the onClick attribute*/}
                     onChangeVolAmount = {handleVolFromAmountChange}
                     volAmount = {fromVolAmount}
                 />
-                 <h4>To: </h4>
+                 <h3>= </h3>
                 <VolConvert 
                     volList = {volList}
                     selectedVol = {toVol}
@@ -777,7 +616,7 @@ using useState and the onClick attribute*/}
                 { active === "AreaConvert" && 
                 <div className='conversionBox'>
                 <h2>Area</h2>
-                <h4>From: </h4>
+                
                 <AreaConvert 
                     areaList={areaList}
                     selectedArea = {fromArea}
@@ -785,7 +624,7 @@ using useState and the onClick attribute*/}
                     onChangeAreaAmount = {handleAreaFromAmountChange}
                     areaAmount = {fromAreaAmount}  
                 />
-                 <h4>To: </h4>
+                 <h3>= </h3>
                 <AreaConvert 
                     areaList={areaList}
                     selectedArea = {toArea}
@@ -800,7 +639,7 @@ using useState and the onClick attribute*/}
                 { active === "TimeConvert" && 
                 <div className='conversionBox'>
                 <h2>Time</h2>
-                <h4>From: </h4>
+                
                 <TimeConvert 
                     timeList={timeList}
                     selectedTime = {fromTime}
@@ -810,7 +649,7 @@ using useState and the onClick attribute*/}
 
 
                 />
-                 <h4>To: </h4>
+                 <h3>= </h3>
                 <TimeConvert 
                     timeList={timeList}
                     selectedTime = {toTime}
