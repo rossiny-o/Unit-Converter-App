@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/Unit-Converter-App/static/css/main.3f3809d6.css",
+    "main.css": "/Unit-Converter-App/static/css/main.112d1e7b.css",
     "main.js": "/Unit-Converter-App/static/js/main.91fc16a2.js",
     "static/media/backgroundimg.jpg": "/Unit-Converter-App/static/media/backgroundimg.f566f4bb3bbff6578af5.jpg",
     "index.html": "/Unit-Converter-App/index.html",
-    "main.3f3809d6.css.map": "/Unit-Converter-App/static/css/main.3f3809d6.css.map",
+    "main.112d1e7b.css.map": "/Unit-Converter-App/static/css/main.112d1e7b.css.map",
     "main.91fc16a2.js.map": "/Unit-Converter-App/static/js/main.91fc16a2.js.map"
   },
   "entrypoints": [
-    "static/css/main.3f3809d6.css",
+    "static/css/main.112d1e7b.css",
     "static/js/main.91fc16a2.js"
   ]
 }
