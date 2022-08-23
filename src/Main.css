@@ -123,6 +123,7 @@ select{
         text-align: end;
         font-size: 1.2rem;
         width: fit-content;
+        text-align: center;
      }
 
 }
