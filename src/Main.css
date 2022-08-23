@@ -103,25 +103,26 @@ select{
 @media screen and (max-width: 40rem){
     body{
         background: rgb(121, 57, 181);
-        margin: .1rem;
-        padding: .2rem;
+        margin: .07rem;
+        padding: .07rem;
     }
     .App {
       
-        padding: .4rem;
+        padding: .2rem;
         text-align: center;
         background-color: rgb(121, 57, 181);
         border-radius: 3.5em;
       }
       .conversionBox{
-        margin: .2em;
-        padding: .5em;
+        margin: .2rem;
+        padding: .5rem;
         border: none;
      
      }
      input{
         text-align: end;
-        font-size: .9rem;
+        font-size: 1.2rem;
+        width: fit-content;
      }
 
 }
