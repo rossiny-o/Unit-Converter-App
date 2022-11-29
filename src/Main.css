@@ -5,6 +5,7 @@
     text-align: center;
     background-color: rgb(121, 57, 181);
     border-radius: 3.5em;
+    
   }
 
 .conversionBox{
@@ -15,50 +16,53 @@
 }
 
 body {
-    margin: 1em;
-    padding: 1em;
+    margin: 2em;
+    padding: 2em;
     display: flex;
     align-items:center;
     justify-content: center;
     min-height: 50vh;
-    background: url(/public/backgroundimg.jpg) ;
+    background:url(/public/backgroundimg.jpg) ;
     background-size: cover;
+    
+    
 
 }
 
 h1 {
-    color: white;
     text-align: center;
-    font-size: 2.5em;
     margin: 0;
     padding: 0;
     
 }
 
 
-h2 {
+h1, h2, h3 {
     color: white;
     text-align: center;
-    text-transform: uppercase ;
-}
-h3 {
+    text-transform: lowercase ;
     font-size: xx-large;
-    font-weight: bolder;
-    color: white;
+    font-weight:bolder
 }
+
 
 Button{
     margin: .2em ;
     border-radius: 1em ;
+    border-color: transparent;
     width: 130px;
     padding: .5em;
     background-color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(61, 5, 74);
+    text-transform: lowercase ;
+
     
 }
 Button:hover{
 
     color: white;
-    border-color: white;
     font-weight: bold;
     background-color: rgb(61, 5, 74);
 }
@@ -70,15 +74,15 @@ Button:focus {
 }
 
 input{
-    color: rgb(8, 8, 8);
-    width: auto;
+    color: rgb(61, 5, 74);
+    width: fit-content;
     padding: .5em;
     background-color:white;
     border: none;
-    border-radius: .5rem;
+    border-radius: 1rem;
     text-align: center;
     font-weight: bold;
-    font-size: 1em;
+    font-size: x-large;
     
 }
 
@@ -86,12 +90,14 @@ select{
     padding: .8rem;
     margin-left: 2em;
     text-align: center;
-    background-color: rgb(121, 57, 181);
+    text-overflow:ellipsis;
+    background-color:white ;
     border: none;
+    border-radius: 1rem;
     width: 10rem;
     font-weight: bolder;
-    font-size: 1rem;
-    color: white;
+    font-size: x-large;
+    color:rgb(61, 5, 74);
    
    
 }
