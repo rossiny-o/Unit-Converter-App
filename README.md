@@ -13,13 +13,6 @@ Utilizes a REST API to provide up-to-date conversion data.
 Technologies
 This application was built using React.js and utilizes a REST API for conversion data.
 
-Getting Started
-
-
-To get started with Unit Converter, simply clone or download the repository and run the following commands:
-npm install
-npm start
-
 
 Support
 
