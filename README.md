@@ -2,6 +2,9 @@
 
 Unit Converter is a simple, user-friendly application that allows you to convert various types of measurements including length, volume, time, temperature, weight, and distance.
 
+# Getting Started
+To view the live demo of the Baiart Store website, simply navigate to https://rossiny-o.github.io/Unit-Converter-App in your web browser.
+
 # Features
 
 Convert between various units of measurement.
